@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 avr. 2017 12:10:58 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="domaine.Notification" table="notification"
+		discriminator-value="notif">
+		<id name="id">
+			<generator class="increment"></generator>
+		</id>
+
+		<discriminator column="type" type="string"></discriminator>
+		<property name="firstname"></property>
+		<property name="lastname"></property>
+		<property name="createdOn"></property>
+		
+		
+
+		<subclass name="domaine.SmsNotification"
+			discriminator-value="Sms">
+			<property name="phoneNumber"></property>
+		</subclass>
+
+		<subclass name="domaine.EmailNotification"
+			discriminator-value="Email">
+			<property name="EmailAdress"></property>
+		</subclass>
+
+	</class>
+
+</hibernate-mapping>
+

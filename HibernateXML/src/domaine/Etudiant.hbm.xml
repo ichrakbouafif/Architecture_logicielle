@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate
+Mapping DTD 3.0//EN"
+
+
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<!-- Generated 18 avr. 2017 12:10:58 by Hibernate
+Tools 3.5.0.Final -->
+
+
+<hibernate-mapping>
+
+
+    <class name="domaine.Etudiant" table="etudiants">
+
+
+        <id name="id" type="int">
+
+
+            <column name="id" />
+
+
+            <generator class="assigned" />
+
+
+        </id>
+
+
+        <property name="nom" type="java.lang.String">
+
+
+            <column name="nom" />
+
+
+        </property>
+
+
+    </class>
+
+
+</hibernate-mapping>

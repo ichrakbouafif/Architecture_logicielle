@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 avr. 2017 12:10:58 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="domaine.Account" table="ACCOUNT">
+        <id name="accountId" type="int">
+            <column name="IDACCOUNT"/>
+            <generator class="increment" />
+           
+        </id>
+         
+        <property name="acc_number" type="java.lang.String">
+            <column name="ACC_NUMBER" />
+        </property>
+       
+        <many-to-one name="employee" class="domaine.Employee" access="field" fetch="join">
+            <column name="idemployee" />
+        </many-to-one>
+
+    </class>
+</hibernate-mapping>
+

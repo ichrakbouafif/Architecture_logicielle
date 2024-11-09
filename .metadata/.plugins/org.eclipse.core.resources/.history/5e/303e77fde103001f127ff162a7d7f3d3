@@ -1,0 +1,56 @@
+package bean2;
+import java.beans.*;
+import java.util.*;
+public class ProduitBeanTest2 {
+
+
+  public static void main(String[] args) {
+    new ProduitBeanTest2();
+  }
+  
+  public ProduitBeanTest2() {
+	  ProduitBean2 monBean2 = new ProduitBean2();
+    
+    monBean2.addPropertyChangeListener( new PropertyChangeListener() {
+      public void propertyChange(PropertyChangeEvent event) {
+        System.out.println("propertyChange : en stock = "+ event.getNewValue());
+      }
+    } );
+    
+    monBean2.addVetoableChangeListener( new VetoableChangeListener() {
+    
+      public void vetoableChange(PropertyChangeEvent event) throws PropertyVetoException {
+        System.out.println("vetoableChange : valeur ou nom = " + event.getNewValue());
+        if( ((Integer)event.getNewValue()).intValue() > 12 ) {
+          throw new PropertyVetoException("valeur superieure a 12",event);
+      }else if ( ((Integer)event.getNewValue()).intValue() < 9) {
+          throw new PropertyVetoException("valeur inferieure a 9", event);
+          }}}
+        
+        
+     );    
+                           
+    System.out.println("valeur = " + monCompteurBean2.getValeur());
+    monCompteurBean2.setValeur(10);
+    
+    monCompteurBean2.incrementer();
+    System.out.println("valeur = " + monCompteurBean2.getValeur());
+    monCompteurBean2.incrementer();                    
+    System.out.println("valeur = " + monCompteurBean2.getValeur());
+    monCompteurBean2.incrementer();                    
+    System.out.println("valeur = " + monCompteurBean2.getValeur());
+    
+    
+    System.out.println("valeur = " + monCompteurBean2.getValeur());
+    monCompteurBean2.setValeur(10);
+    monCompteurBean2.decrementer();                    
+    System.out.println("valeur = " + monCompteurBean2.getValeur());
+    monCompteurBean2.decrementer();                    
+    System.out.println("valeur = " + monCompteurBean2.getValeur());
+    
+
+    
+    
+                           
+  }
+}

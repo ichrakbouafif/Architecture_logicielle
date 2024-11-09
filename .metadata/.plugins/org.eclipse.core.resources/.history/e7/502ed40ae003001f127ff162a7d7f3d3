@@ -1,0 +1,7 @@
+package bean2;
+
+import java.io.Serializable;
+
+public class ProduitBean2 implements Serializable{
+
+}

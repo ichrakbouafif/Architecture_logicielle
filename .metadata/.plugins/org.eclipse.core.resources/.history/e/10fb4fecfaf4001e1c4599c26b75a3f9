@@ -1,0 +1,5 @@
+package com.example.car_rental_angular.controller;
+
+public class AdminController {
+
+}
